@@ -11,7 +11,8 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+    {   
+        //USUARIO
         Schema::create('usuario', function (Blueprint $table) {
             $table->bigIncrements('id_usuario');//PK
             $table->string('correo',255);
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
         });
 
-
+        //MATERIAL
         Schema::create('material', function (Blueprint $table) {
             $table->bigIncrements('id_material');//PK
             $table->string('nombre',255);
@@ -34,6 +35,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
         });
 
+        //INVENTARIO
         Schema::create('inventario', function (Blueprint $table) {
             $table->bigIncrements('id_inventario');//PK
             $table->integer('cantidad')->default(0);
@@ -45,7 +47,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
         });
 
-
+        //ESTANTE
         Schema::create('estante', function (Blueprint $table) {
             $table->bigIncrements('id_estante');//PK
             $table->string('pasillo',255);
