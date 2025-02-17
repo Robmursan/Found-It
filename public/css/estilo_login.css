@@ -29,19 +29,17 @@ main{
     position: relative;
 }
 
-.caja__trasera {
+.caja__trasera{
     width: 100%;
-    padding: 20px; /* Se corrigió el padding (antes tenía una coma incorrecta) */
+    padding: 10px , 40px;
     display: flex;
-    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
-    justify-content: center; /* Centra verticalmente */
-    align-items: center; /* Centra horizontalmente */
+    justify-content:baseline ;
     backdrop-filter: blur(1px);
     background-color: rgba(0, 128, 255, 0.5);
-    border-radius: 8px; /* Se aumentó un poco para mejor estética */
-    text-align: center; /* Asegura que el texto del <p> se centre correctamente */
+    border-radius: 2%;
+     
+   
 }
-
 
 .caja__trasera div{
     margin: 180px 250px;
@@ -51,12 +49,9 @@ main{
 }
 
 .caja__trasera p,
-.caja__trasera div button {
+.caja__trasera div button{
     margin-top: 30px;
-    padding: 10px 40px; /* Corrección de la sintaxis */
-    text-align: right; /* Alinea el texto a la derecha */
-    display: block; /* Asegura que el <p> respete la alineación */
-    width: 100%; /* Para que la alineación tenga efecto en todo el ancho */
+    padding: 10px, 40px;
 }
 
 .caja__trasera div h3{
