@@ -9,7 +9,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * MIgracion de DATA BASE PROJECT
+     * MIgracion de DATA BASE PROJECTO
      */
     public function up(): void
     {   
