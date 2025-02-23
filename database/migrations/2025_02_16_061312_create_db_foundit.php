@@ -41,9 +41,9 @@ return new class extends Migration
             $table->bigIncrements('id_inventario');//PK
             $table->integer('cantidad')->default(0);
             $table->timestamp('fecha_actualizacion')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->unsignedBigInteger('material_ids');//FK
+            $table->unsignedBigInteger('material_id');//FK
             //clave foranea
-            $table->foreign('material_ids')->references('id_material')->on('material')->onDelete('cascade');
+            $table->foreign('material_id')->references('id_material')->on('material')->onDelete('cascade');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
