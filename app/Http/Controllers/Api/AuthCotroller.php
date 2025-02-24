@@ -40,7 +40,7 @@ class AuthCotroller extends Controller
         }
 
         //mandamos los datos ala Base de Datos encryptando pass
-        $usuario =Usuarios::create([
+        $usuario = Usuarios::create([
             'correo'=>$request->correo,
             //'pass'=>$request->pass,
             'pass'=>Hash::make($request->pass), //pass encryptado

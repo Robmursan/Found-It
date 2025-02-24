@@ -18,11 +18,11 @@
             </div>
 
             <div class="p-6 bg-white">
-                <form action="" class="space-y-4">
+                <form action="/api/login" method="post" class="space-y-4" >
                     <h2 class="text-2xl font-semibold mb-4 text-center">Inicio de Sesión</h2>
-                    <input type="text" placeholder="Usuario" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <input type="password" placeholder="Contraseña" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Ingresar</button>
+                    <input type="text" name="correo" placeholder="Usuario" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <input type="password" name="pass" placeholder="Contraseña" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <button type="submit" value="Inciar_sesion" class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Ingresar</button>
                 </form>
             </div>
 
