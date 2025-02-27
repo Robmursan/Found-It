@@ -10,4 +10,8 @@ class ControllerVista extends Controller
     public function __invoke(){
         return view('layouts.login'); //vista de inicio de session
     }
+
+    public function dash(){
+        return view('dashboard'); //vista de inicio de session
+    }
 }
