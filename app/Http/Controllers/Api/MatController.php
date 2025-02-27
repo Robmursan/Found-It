@@ -33,6 +33,7 @@ class MatController extends Controller
 
         }
 
+        //preprara para mandar DB
         $material= Materiales::create([
             'nombre'=>$request->nombre,
             'categoria'=>$request->categoria ?? 'Sin Categoria', //valor por defecto
