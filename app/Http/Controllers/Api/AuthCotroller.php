@@ -96,6 +96,7 @@ class AuthCotroller extends Controller
                 'mensaje'=>'Inicio exitoso',
                 'status'=>'200'
             ];
+            return view('dashboard');
             return response()->json($datos,200);
 
         }else{
