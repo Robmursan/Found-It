@@ -3,7 +3,7 @@
   
 <!-- Company Logo and Name - Vertical Layout -->
 <div class="flex flex-col items-center pt-6 pb-4">
-    <img src="/found-it.png" alt="Logo de Found-It" class="h-16 w-16 rounded-lg shadow-lg">
+    <img src="/found-it.png" alt="Logo de Found-It" class="h-25 w-30 rounded-lg shadow-lg">
 </div>
 
     <!-- Sidebar Navigation -->
