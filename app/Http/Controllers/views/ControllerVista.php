@@ -23,5 +23,8 @@ class ControllerVista extends Controller
     public function conteos (){
         return view('conteos');
     }
+    public function surtido (){
+        return view('surtido');
+    }
 
 }

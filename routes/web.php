@@ -16,5 +16,5 @@ Route::get("/embarques", [ControllerVista::class, 'embarques'])->name('embarques
 
 Route::get("/conteos", [ControllerVista::class, 'conteos'])->name('conteos');
 
-
+Route::get("/surtido", [ControllerVista::class, 'surtido'])->name('surtido');
 
