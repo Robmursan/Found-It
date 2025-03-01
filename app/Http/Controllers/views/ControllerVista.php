@@ -16,6 +16,8 @@ class ControllerVista extends Controller
         return view('dashboard');
     }
 
-
+    public function embarques (){
+        return view('embarques');
+    }
 
 }

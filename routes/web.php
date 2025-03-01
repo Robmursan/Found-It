@@ -12,5 +12,7 @@ Route::get("/",[ControllerVista::class,'__invoke']);//aqui se rutea el controlad
 Route::get("/dashboard", [ControllerVista::class, 'dashboard'])->name('dashboard');
 
 
+Route::get("/embarques", [ControllerVista::class, 'embarques'])->name('embarques');
+
 
 
