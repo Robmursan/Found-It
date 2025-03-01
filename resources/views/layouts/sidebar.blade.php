@@ -1,13 +1,10 @@
+
 <div class="sidebar fixed inset-y-0 left-0 w-64 transform -translate-x-full lg:translate-x-0 transition duration-200 ease-in-out z-30 bg-gradient-to-b from-foundit-blue to-foundit-blue/90">
-    <!-- Company Logo and Name - Vertical Layout -->
-    <div class="flex flex-col items-center pt-6 pb-4">
-        <div class="h-16 w-16 rounded-full bg-white flex items-center justify-center text-foundit-blue font-bold shadow-lg mb-3">
-            <span class="text-2xl">F</span>
-        </div>
-        <div class="text-xl font-bold text-white">
-            FOUND-IT
-        </div>
-    </div>
+  
+<!-- Company Logo and Name - Vertical Layout -->
+<div class="flex flex-col items-center pt-6 pb-4">
+    <img src="/found-it.png" alt="Logo de Found-It" class="h-16 w-16 rounded-lg shadow-lg">
+</div>
 
     <!-- Sidebar Navigation -->
     <nav class="mt-5 px-3 overflow-y-auto h-[calc(100vh-4rem-4rem)]">

@@ -20,4 +20,8 @@ class ControllerVista extends Controller
         return view('embarques');
     }
 
+    public function conteos (){
+        return view('conteos');
+    }
+
 }
