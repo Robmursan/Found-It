@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\MatController;
 use App\Http\Controllers\Api\AuthCotroller;
+use App\Http\Controllers\api\InventarioController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('usuarios',[AuthCotroller::class,'index']);
 Route::post('/createUsuario',[AuthCotroller::class,'Registrarusuario']);
 Route::post('/login',[AuthCotroller::class,'loginUser']);
+
+//inventario
+Route::get('/inventario',[InventarioController::class,'inventario']);
+Route::post('/registroInventario',[InventarioController::class,'registrarInventario']);
+
 
 //materiales
 Route::get('/material',[MatController::class,'index']);//ruta para ver estudiante

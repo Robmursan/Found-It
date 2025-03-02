@@ -11,7 +11,8 @@ class Usuarios extends Model
     //use HasFactory,HasApiTokens;
     
     //nombre de tabla
-    protected $table='Usuario';
+    protected $table='Usuario'; //nombre de tabla
+    protected $primarykey='id_usuario'; //clave primaria
 
     protected $fillable=[
         'correo',
@@ -20,6 +21,11 @@ class Usuarios extends Model
         'rol',
         'estado'
     ];
+
+    //funcion para relacion
+    public function estante(){
+        return $this->hasMany(Estante::class,'usuario_id'); //
+    }
 
     protected $attributes=[
         'estado'=>'1',
