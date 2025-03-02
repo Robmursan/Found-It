@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind utilities;
+
+
+
+
+
+/* Estilos personalizados */
+.sidebar {
+  transition: transform 0.3s ease-in-out;
+}
+
+.collapsible-content {
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* Ajustes para el scroll del sidebar */
+.sidebar nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar nav::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 2px;
+}
+
+.sidebar nav::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}

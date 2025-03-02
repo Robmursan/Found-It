@@ -40,3 +40,5 @@ Route::put('/usuario{id}',function(){
 Route::delete('usuario/{id}', function ($id) {
     return 'eliminando usuario';
 });
+
+
