@@ -26,7 +26,7 @@
                 </div>
                 <div class="relative">
                     <dt class="text-sm font-medium text-gray-500">Disponible</dt>
-                    <dd class="text-xl font-semibold text-foundit-blue mt-1">1000 unidades</dd>
+                    <dd class="text-xl font-semibold text-foundit-blue mt-1">1500 unidades</dd>
                     
                     <!-- Botón Localizar movido a la derecha del campo "Disponible" -->
                     <button 

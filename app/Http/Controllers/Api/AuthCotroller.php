@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Usuario;
 use App\Models\Usuarios;
+//use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use  Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
+use function Laravel\Prompts\alert;
+
 class AuthCotroller extends Controller
 {
     //funcion para obtener usuarios 
@@ -25,7 +30,7 @@ class AuthCotroller extends Controller
             'pass'=>'required|min:6',
             'username'=>'required|unique:usuario,username',
             'rol'=>'required',
-            'estado'
+            'estado'=> 'nullable'
         ]);
         
         //valida si contiene datos ingresados
@@ -42,11 +47,10 @@ class AuthCotroller extends Controller
         //mandamos los datos ala Base de Datos encryptando pass
         $usuario = Usuarios::create([
             'correo'=>$request->correo,
-            //'pass'=>$request->pass,
             'pass'=>Hash::make($request->pass), //pass encryptado
             'username'=>$request->username,
             'rol'=>$request->rol,
-            'estatus'=>$request->estatus ?? '1' //estatus defaul 1=activo
+            'estatus'=>$request->estatus ?? true //estatus defaul 1=activo
         ]);
 
         //si no se creo el usuario
@@ -83,33 +87,39 @@ class AuthCotroller extends Controller
             ];
             return response()->json($dato,400);
         }
-        //consulta usuario y contraseña ingresados
-        /* Usuarios::where('correo',$request->correo)
-                ->where('pass',$request->pass)
-                ->first(); */
 
+        //consulta usuario y contraseña ingresados
         $usuario=Usuarios::where('correo',$request->correo)->first();//busca el usuario
         
 
         if($usuario && Hash::check($request->pass,$usuario->pass)){
-            $datos=[
-                'mensaje'=>'Inicio exitoso',
-                'status'=>'200'
-            ];
-            return response()->json($datos,200);
+
+           //return view('dashboard');
+            return redirect()->route('dashboard');
 
         }else{
-            $dato=[
-                'mensaje'=>'Credenciales Incorrectas',
-            ];
 
-            return response()->json($dato);
+            return view('layouts.login')->with('mensaje','Credenciales Incorrectas');
+            //return back()->with('mensaje','Credenciales Incorrectas');
         }
         
         
 
     }
 
-    //lo
+    // Cerrar sesion
+
+    public function logout(Request $request){
+        //cerrar sesion
+        Auth::logout(); //usado desde la libreria 
+        //invalidar session
+        $request->session()->invalidate();
+        
+        $request->session()->regenerate(); //regenera id
+
+        //redireccionar a login
+        return redirect()->route('inicioSesion');
+
+    }
 
 }

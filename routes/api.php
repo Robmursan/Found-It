@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('usuarios',[AuthCotroller::class,'index']);
 Route::post('/createUsuario',[AuthCotroller::class,'Registrarusuario']);
 Route::post('/login',[AuthCotroller::class,'loginUser']);
+//Route::post('/logout',[AuthCotroller::class,'logout'])->name('cerrarSesion');
 
 //inventario
 Route::get('/inventario',[InventarioController::class,'inventario']);

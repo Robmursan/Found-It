@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 //use Laravel\Sanctum\HasApiTokens;
 class Usuarios extends Model
 {
     use HasFactory;
-    //use HasFactory,HasApiTokens;
+    use HasApiTokens;
+    
     
     //nombre de tabla
     protected $table='Usuario'; //nombre de tabla

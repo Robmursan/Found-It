@@ -27,6 +27,12 @@
             </div>
 
         </div><!-- cierre de caja del login -->
+        @if (isset($mensaje))
+        <script>
+            alert('{{$mensaje}}');
+        </script>
+        
+        @endif
     </main>
 
 </body>
