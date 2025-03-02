@@ -7,9 +7,52 @@
             <h1 class="text-2xl font-semibold text-foundit-blue">Gestión de Conteos</h1>
         </div>
 
-        <!-- Barra de búsqueda -->
-        <div class="mb-6">
-            <input type="text" id="searchInput" placeholder="Buscar material..." class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-foundit-blue focus:border-transparent">
+        <!-- Búsqueda y Filtros -->
+        <div class="mb-6 bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <div class="flex flex-col md:flex-row gap-4">
+                <!-- Búsqueda -->
+                <div class="flex-1">
+                    <div class="relative flex">
+                        <input 
+                            type="text" 
+                            id="searchInput"
+                            placeholder="Buscar por código o nombre..."
+                            class="w-full h-10 pl-10 pr-4 rounded-l-lg border border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
+                        >
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="h-5 w-5 absolute left-3 top-2.5 text-gray-400"
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <button 
+                            type="button"
+                            class="h-10 px-4 bg-foundit-blue text-white rounded-r-lg hover:bg-foundit-blue/90 transition-colors duration-150"
+                        >
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filtros -->
+                <div class="flex flex-wrap gap-4">
+                    <select class="h-10 rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue">
+                        <option value="">Todas las categorías</option>
+                        <option value="ferreteria">Ferretería</option>
+                        <option value="electronica">Electrónica</option>
+                        <option value="herramientas">Herramientas</option>
+                    </select>
+                    <select class="h-10 rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue">
+                        <option value="">Ordenar por</option>
+                        <option value="codigo">Código</option>
+                        <option value="nombre">Nombre</option>
+                        <option value="ubicacion">Ubicación</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
         <!-- Materiales sin ubicación -->
@@ -98,9 +141,4 @@
             </div>
         </div>
     </div>
-
-    
-
-    
 @endsection
-

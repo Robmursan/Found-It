@@ -19,7 +19,10 @@ Route::get("/conteos", [ControllerVista::class, 'conteos'])->name('conteos');
 
 Route::get("/surtido", [ControllerVista::class, 'surtido'])->name('surtido');
 
-Route::get("/agregarembarques", [ControllerVista::class, 'agregarembarques'])->name('agregarembarques');
+Route::get("/embarqueseditar", [ControllerVista::class, 'embarqueseditar'])->name('embarqueseditar');
+
+Route::get("/embarquesagregar", [ControllerVista::class, 'embarquesagregar'])->name('embarquesagregar');
+
 
 Route::get("/conteoagregar", [ControllerVista::class, 'conteoagregar'])->name('conteoagregar');
 
