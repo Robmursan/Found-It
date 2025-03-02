@@ -29,8 +29,8 @@ class ControllerVista extends Controller
         return view('surtido');
     }
     
-    public function agregarembarques (){
-        return view('agregarembarques');
+    public function embarqueseditar (){
+        return view('embarqueseditar');
     }
     
 
@@ -48,5 +48,10 @@ class ControllerVista extends Controller
     public function dashboardusuarios (){
         return view('dashboardusuarios');
     }
+    
+    public function embarquesagregar (){
+        return view('embarquesagregar');
+    }
+
     
 }

@@ -3,33 +3,68 @@
 @section('content')
     <div class="p-6">
         <!-- Header -->
-        <div class="mb-6 flex justify-between items-center">
+        <div class="mb-6">
             <h1 class="text-2xl font-semibold text-foundit-blue">Gestión de Embarques</h1>
-            
-             <!-- Encabezado de la sección --> 
-              
-        <div class="mb-6 flex justify-between items-center"> 
-            <h1 class="text-2xl font-semibold text-foundit-blue">Localizar Material</h1> 
-            <div class="flex items-center gap-2"> 
-                <!-- Campo de entrada para la búsqueda de materiales --> 
-                <input type="text" id="searchInput" class="border rounded-lg px-3 py-2" 
-placeholder="Buscar por código o nombre..."> 
-                <!-- Botón para iniciar la búsqueda --> 
-                <button onclick="searchMaterial()" class="px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150"> 
-                    Buscar 
-                </button>
-                <!-- Botón para nuevo material -->
-                <button onclick="openNewMaterialModal()" class="px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150">
-                    Nuevo Material
-                </button>
-            </div>
-             
         </div>
-         
+
+        <!-- Sección de Localizar Material - Diseño mejorado -->
+        <div class="mb-6 bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1">
+                    <h2 class="text-xl font-semibold text-foundit-blue mb-4">Localizar material</h2>
+                    <div class="flex gap-4 flex-col md:flex-row">
+                        <!-- Búsqueda -->
+                        <div class="flex-1">
+                            <div class="relative flex">
+                                <input 
+                                    type="text" 
+                                    id="searchInput" 
+                                    class="w-full h-10 pl-10 pr-4 rounded-l-lg border border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue" 
+                                    placeholder="Buscar por código o nombre..."
+                                >
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    class="h-5 w-5 absolute left-3 top-2.5 text-gray-400"
+                                    fill="none" 
+                                    viewBox="0 0 24 24" 
+                                    stroke="currentColor"
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                <button class="h-10 px-4 bg-[#2563eb] text-white rounded-r-lg hover:bg-[#2563eb]/90 transition-colors duration-150">
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Filtros -->
+                        <div class="flex gap-4 md:w-auto">
+                            <select class="h-10 rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue">
+                                <option value="">Todas las categorías</option>
+                                <option value="ferreteria">Ferretería</option>
+                                <option value="electronica">Electrónica</option>
+                                <option value="herramientas">Herramientas</option>
+                            </select>
+                            <select class="h-10 rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue">
+                                <option value="">Ordenar por</option>
+                                <option value="codigo">Código</option>
+                                <option value="nombre">Nombre</option>
+                                <option value="ubicacion">Ubicación</option>
+                            </select>
+                        </div>
+
+                        <!-- Botón  Material -->
+                        <button onclick="openNewMaterialModal()" class="h-10 px-6 bg-[#2563eb] text-white rounded-lg hover:bg-[#2563eb]/90 transition-colors duration-150">
+                            Nuevo material
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Tabla de Materiales -->
         <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+            <!-- El contenido de la tabl-->
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
@@ -69,110 +104,14 @@ placeholder="Buscar por código o nombre...">
         </div>
     </div>
 
-    <!-- Modal de Localizar -->
-    
-
+ 
     <!-- Modal de Edición -->
     <div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-lg max-w-md w-full">
-            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
-                <h3 class="text-lg font-semibold text-foundit-blue">Editar Material</h3>
-                <button onclick="closeEditModal()" class="text-gray-400 hover:text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="p-4">
-                <form class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Código</label>
-                        <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm" value="MAT001" readonly>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Nombre del Material</label>
-                        <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm" value="Tornillos M4">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Categoría</label>
-                        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm">
-                            <option>Ferretería</option>
-                            <option>Electrónica</option>
-                            <option>Herramientas</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Cantidad</label>
-                        <input type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm" value="1000">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Ubicación</label>
-                        <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm" value="A-01-02">
-                    </div>
-                </form>
-            </div>
-            <div class="p-4 border-t border-gray-200 bg-gray-50 rounded-b-lg flex justify-end gap-2">
-                <button onclick="closeEditModal()" class="px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-150">
-                    Cancelar
-                </button>
-                <button onclick="saveChanges()" class="px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150">
-                    Guardar Cambios
-                </button>
-            </div>
-        </div>
+       
     </div>
 
     <!-- Modal de Nuevo Material -->
     <div id="newMaterialModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-lg max-w-md w-full">
-            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
-                <h3 class="text-lg font-semibold text-foundit-blue">Nuevo Material</h3>
-                <button onclick="closeNewMaterialModal()" class="text-gray-400 hover:text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="p-4">
-                <form class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Código</label>
-                        <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm" placeholder="Ingrese código">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Nombre del Material</label>
-                        <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm" placeholder="Ingrese nombre">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Categoría</label>
-                        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm">
-                            <option value="">Seleccione categoría</option>
-                            <option>Ferretería</option>
-                            <option>Electrónica</option>
-                            <option>Herramientas</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Cantidad</label>
-                        <input type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm" placeholder="0">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Ubicación</label>
-                        <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-foundit-blue focus:ring-foundit-blue sm:text-sm" placeholder="Ej: A-01-02">
-                    </div>
-                </form>
-            </div>
-            <div class="p-4 border-t border-gray-200 bg-gray-50 rounded-b-lg flex justify-end gap-2">
-                <button onclick="closeNewMaterialModal()" class="px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors duration-150">
-                    Cancelar
-                </button>
-                <button onclick="saveNewMaterial()" class="px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150">
-                    Guardar Material
-                </button>
-            </div>
-        </div>
+    
     </div>
-
-   
-   
 @endsection
