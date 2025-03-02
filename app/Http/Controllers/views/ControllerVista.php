@@ -20,4 +20,33 @@ class ControllerVista extends Controller
         return view('embarques');
     }
 
+    public function conteos (){
+        return view('conteos');
+    }
+
+
+    public function surtido (){
+        return view('surtido');
+    }
+    
+    public function agregarembarques (){
+        return view('agregarembarques');
+    }
+    
+
+
+    public function conteoagregar (){
+        return view('conteoagregar');
+    }
+
+
+    public function surtsalida (){
+        return view('surtsalida');
+    }
+    
+
+    public function dashboardusuarios (){
+        return view('dashboardusuarios');
+    }
+    
 }

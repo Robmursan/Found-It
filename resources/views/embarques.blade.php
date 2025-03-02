@@ -5,12 +5,27 @@
         <!-- Header -->
         <div class="mb-6 flex justify-between items-center">
             <h1 class="text-2xl font-semibold text-foundit-blue">Gestión de Embarques</h1>
-            <button onclick="openNewMaterialModal()" class="px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-                Nuevo Material
-            </button>
+            
+             <!-- Encabezado de la sección --> 
+              
+        <div class="mb-6 flex justify-between items-center"> 
+            <h1 class="text-2xl font-semibold text-foundit-blue">Localizar Material</h1> 
+            <div class="flex items-center gap-2"> 
+                <!-- Campo de entrada para la búsqueda de materiales --> 
+                <input type="text" id="searchInput" class="border rounded-lg px-3 py-2" 
+placeholder="Buscar por código o nombre..."> 
+                <!-- Botón para iniciar la búsqueda --> 
+                <button onclick="searchMaterial()" class="px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150"> 
+                    Buscar 
+                </button>
+                <!-- Botón para nuevo material -->
+                <button onclick="openNewMaterialModal()" class="px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150">
+                    Nuevo Material
+                </button>
+            </div>
+             
+        </div>
+         
         </div>
 
         <!-- Tabla de Materiales -->
@@ -54,42 +69,8 @@
         </div>
     </div>
 
-    <!-- Modal de Historial -->
-    <div id="historyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-lg max-w-2xl w-full">
-            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
-                <h3 class="text-lg font-semibold text-foundit-blue">Historial de Movimientos</h3>
-                <button onclick="closeHistoryModal()" class="text-gray-400 hover:text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="p-4">
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div class="h-8 w-8 rounded-full bg-foundit-blue/10 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-foundit-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-sm font-medium text-gray-900">Entrada de material</p>
-                            <p class="text-sm text-gray-500">Cantidad: +500</p>
-                            <p class="text-xs text-gray-400">01/03/2024 10:30 - Juan Pérez</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="p-4 border-t border-gray-200 bg-gray-50 rounded-b-lg">
-                <button onclick="closeHistoryModal()" class="w-full px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150">
-                    Cerrar
-                </button>
-            </div>
-        </div>
-    </div>
+    <!-- Modal de Localizar -->
+    
 
     <!-- Modal de Edición -->
     <div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -192,43 +173,6 @@
         </div>
     </div>
 
-    @push('scripts')
-    <script>
-        // Funciones para los modales
-        function openHistoryModal(code) {
-            document.getElementById('historyModal').classList.remove('hidden');
-        }
-
-        function closeHistoryModal() {
-            document.getElementById('historyModal').classList.add('hidden');
-        }
-
-        function openEditModal(code) {
-            document.getElementById('editModal').classList.remove('hidden');
-        }
-
-        function closeEditModal() {
-            document.getElementById('editModal').classList.add('hidden');
-        }
-
-        function openNewMaterialModal() {
-            document.getElementById('newMaterialModal').classList.remove('hidden');
-        }
-
-        function closeNewMaterialModal() {
-            document.getElementById('newMaterialModal').classList.add('hidden');
-        }
-
-        function saveChanges() {
-            // Aquí iría la lógica para guardar cambios
-            closeEditModal();
-        }
-
-        function saveNewMaterial() {
-            // Aquí iría la lógica para guardar nuevo material
-            closeNewMaterialModal();
-        }
-    </script>
-    @endpush
+   
+   
 @endsection
-
