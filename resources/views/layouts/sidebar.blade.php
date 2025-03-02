@@ -31,19 +31,19 @@
                 </button>
                 <div class="collapsible-content overflow-hidden max-h-0 transition-all duration-200 ease-in-out">
                     <div class="pl-10 pr-2 py-2 space-y-2">
-                        <a href="/area/surtido" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg bg-foundit-red text-white shadow-lg hover:bg-white hover:text-foundit-red transition-all duration-150">
+                        <a href="{{route('surtido')}}" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg bg-foundit-red text-white shadow-lg hover:bg-white hover:text-foundit-red transition-all duration-150">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
                             Surtido
                         </a>
-                        <a href="/area/conteo" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
+                        <a href="{{route('conteos')}}" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                             </svg>
                             Conteo
                         </a>
-                        <a href="/area/embarques" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
+                        <a href="{{route('embarques')}}" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
@@ -119,11 +119,14 @@
                 <div class="text-sm font-medium text-white">Usuario Demo</div>
                 <div class="text-xs text-white/70">usuario@foundit.com</div>
             </div>
-            <button class="ml-auto p-2 rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg>
-            </button>
+            <form action="{{route('cerrarSesion')}}" method="POST">
+                @csrf
+                <button type="submit" class="ml-auto p-2 rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                </button>
+            </form>
         </div>
     </div>
 </div>

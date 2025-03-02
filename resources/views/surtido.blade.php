@@ -6,7 +6,7 @@
         <!-- Header -->
         <div class="mb-6 flex justify-between items-center">
             <h1 class="text-2xl font-semibold text-foundit-blue">Gestión de Surtido</h1>
-            <button onclick="openSurtirModal()" class="px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150">
+            <button onclick="window.location.href='{{route('surtsalida')}}'" class="px-4 py-2 bg-foundit-blue text-white rounded-lg hover:bg-foundit-blue/90 transition-colors duration-150">
                 Surtir Material
             </button>
         </div>
@@ -80,5 +80,5 @@
         </div>
     </div>
 
-   
+
 @endsection
