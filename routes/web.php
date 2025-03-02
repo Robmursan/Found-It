@@ -6,7 +6,7 @@ use App\Http\Controllers\views\ControllerVista;
 use Illuminate\Support\Facades\Route;
 
 
-//Rutas de vistas
+//Rutas de vista
 Route::get("/",[ControllerVista::class,'__invoke'])->name('inicioSesion');//aqui se rutea el controlador , donde esta alojada la funcion 
 Route::post('/logout',[AuthCotroller::class,'logout'])->name('cerrarSesion');
 
