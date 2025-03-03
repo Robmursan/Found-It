@@ -1,9 +1,9 @@
 <div class="sidebar fixed inset-y-0 left-0 w-64 transform -translate-x-full lg:translate-x-0 transition duration-200 ease-in-out z-30 bg-gradient-to-b from-foundit-blue to-foundit-blue/90">
-  
+
 <!-- Company Logo and Name - Vertical Layout -->
-<div class="flex flex-col items-center pt-6 pb-4">      
-    
-<img src="img/logofound-it.jpg" alt="Logo de Found-It" class="w-48 h-16 mx-auto rounded-lg shadow-lg">
+<div class="flex flex-col items-center pt-6 pb-4">
+
+    <img src="{{ asset('img/logofound-it.jpg') }}" alt="Logo de Found-It" class="w-48 h-16 mx-auto rounded-lg shadow-lg">
 
 </div>
 
@@ -37,12 +37,13 @@
                             </svg>
                             Surtido
                         </a>
-                        <a href="{{route('listaMaterial')}}" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        <a href="{{ route('listaMaterial') }}" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 group-hover:scale-110 transition-transform stroke-white group-hover:stroke-foundit-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0z" />
                             </svg>
                             Conteo
                         </a>
+
                         <a href="{{route('embarques')}}" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
