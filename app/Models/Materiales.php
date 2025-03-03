@@ -15,6 +15,7 @@ class Materiales extends Model
         'nombre',
         'categoria',
         'codigo',
+        'cantidad',
         'fecha_salida'
     ];
 

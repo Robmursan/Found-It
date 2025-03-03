@@ -54,7 +54,7 @@
                         </div>
 
                         <!-- Botón  Material -->
-                        <button onclick="openNewMaterialModal()" class="h-10 px-6 bg-[#2563eb] text-white rounded-lg hover:bg-[#2563eb]/90 transition-colors duration-150">
+                        <button onclick="window.location.href='{{route('embarquesagregar')}}'" class="h-10 px-6 bg-[#2563eb] text-white rounded-lg hover:bg-[#2563eb]/90 transition-colors duration-150">
                             Nuevo material
                         </button>
                     </div>
@@ -104,10 +104,10 @@
         </div>
     </div>
 
- 
+
     <!-- Modal de Edición -->
     <div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-       
+    
     </div>
 
     <!-- Modal de Nuevo Material -->

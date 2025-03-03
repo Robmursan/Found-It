@@ -72,12 +72,14 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach ($materiales as  $material)
+                            
                             <!-- Ejemplo de fila sin ubicación -->
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT002</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tuercas M4</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ferretería</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">500</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$material->codigo}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->nombre}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->categoria}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->cantidad}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                                     <button onclick="openHistoryModal('MAT002')" class="text-foundit-blue hover:text-foundit-blue/80 transition-colors duration-150">
@@ -92,8 +94,15 @@
                                     </button>
                                 </td>
                             </tr>
+
+                            @endforeach
                         </tbody>
                     </table>
+
+                    @if ($materiales->isEmpty())
+                    <p class="p-4 text-gray-500">No hay materiales sin ubicación.</p>
+                    @endif
+
                 </div>
             </div>
         </div>

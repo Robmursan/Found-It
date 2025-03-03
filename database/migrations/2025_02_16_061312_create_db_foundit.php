@@ -11,7 +11,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * MIgracion de DATA BASE PROJECTO
+     * Migracion de DATA BASE PROJECTO
      */
     public function up(): void
     {   
@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('categoria',255)->nullable();
             $table->bigInteger('codigo')->default(0)->unique();
             //$table->timestamp('fecha_ingreso')->default(value: DB::raw(value: 'CURRENT_TIMESTAMP'));
+            $table->integer('cantidad');
             $table->timestamps();
             $table->timestamp('fecha_salida')->nullable();//agrega salida manual
             $table->engine = 'InnoDB';
