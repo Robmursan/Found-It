@@ -10,7 +10,8 @@
 
     <!-- Formulario de Nuevo Embarque -->
     <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        <form class="p-8">
+        <form action="/api/materialCreate?" method="post" class="p-8">
+            @csrf
             <div class="space-y-6">
                 <!-- Código del Material -->
                 <div>
@@ -19,6 +20,7 @@
                     </label>
                     <input 
                         type="text" 
+                        name="codigo" {{-- atributo de DB --}}
                         placeholder="Ingrese el código del material"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
                         required
@@ -32,6 +34,7 @@
                     </label>
                     <input 
                         type="text" 
+                        name="nombre" {{-- atributo de DB --}}
                         placeholder="Ingrese el nombre del material"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
                         required
@@ -44,6 +47,7 @@
                         Categoría
                     </label>
                     <select 
+                        name="categoria" {{-- atributo de DB --}}
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
                         required
                     >
@@ -62,6 +66,7 @@
                     </label>
                     <input 
                         type="number" 
+                        name="cantidad" {{-- atributo de DB --}}
                         placeholder="Ingrese la cantidad"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
                         min="1"
@@ -101,6 +106,16 @@
                 </button>
             </div>
         </form>
+        @if (isset($mensaje))
+            <script>
+                alert('{{$mensaje}}');
+            </script>
+        @elseif(session('mensaje'))
+            <script>
+                alert({{ session('mensaje') }})
+            </script>
+        @endif
+
     </div>
 </div>
 @endsection

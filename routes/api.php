@@ -25,8 +25,8 @@ Route::post('/registroInventario',[InventarioController::class,'registrarInventa
 
 
 //materiales
-Route::get('/material',[MatController::class,'index']);//ruta para ver estudiante
-Route::post('/materialCreate',[MatController::class,'registrarMaterial']);
+Route::get('/material',[MatController::class,'listaMaterial'])->name('listaMaterial');//ruta para ver estudiante
+Route::post('/materialCreate',[MatController::class,'registrarMaterial'])->name('registroMaterial');
 
 
 Route::get('/usuario/{id}',function(){
