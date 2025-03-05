@@ -23,6 +23,7 @@ class Materiales extends Model
     public function inventario(){
         return $this->hasOne(Inventario::class,'material_id');
     }
+    
 
     protected $attributes=[
         'categoria'=>'Sin categoria',

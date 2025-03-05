@@ -55,7 +55,7 @@ return new class extends Migration
         //ESTANTE
         Schema::create('estante', function (Blueprint $table) {
             $table->bigIncrements('id_estante');//PK
-            $table->string('pasillo',255);
+            $table->string('pasillo',255)->nullable();
             $table->string('columna',255);
             $table->string('fila',255);
             $table->boolean('led')->default(false);

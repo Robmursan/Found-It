@@ -16,29 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 //usuarios
 Route::get('usuarios',[AuthCotroller::class,'index']);
-Route::post('/createUsuario',[AuthCotroller::class,'Registrarusuario']);
-Route::post('/login',[AuthCotroller::class,'loginUser']);
+Route::post('/createUsuario',[AuthCotroller::class,'store']);
 
 //inventario
 Route::get('/inventario',[InventarioController::class,'inventario']);
 Route::post('/registroInventario',[InventarioController::class,'registrarInventario']);
 
-
 //materiales
-Route::get('/material',[MatController::class,'listaMaterial'])->name('listaMaterial');//ruta para ver estudiante
-Route::post('/materialCreate',[MatController::class,'registrarMaterial'])->name('registroMaterial');
-
-
-Route::get('/usuario/{id}',function(){
-    return 'obteniendo un usuario';
-});
-
-Route::put('/usuario{id}',function(){
-    return 'ACtualizando';
-});
-
-Route::delete('usuario/{id}', function ($id) {
-    return 'eliminando usuario';
-});
-
+Route::get('/material',[MatController::class,'listaMaterial'])->name('listaMaterial');//ruta para ver material
+Route::post('/materialCreate',[MatController::class,'registrarMaterial'])->name('registroMaterial'); //regitro de material
+Route::post('/editarMaterial/{id}',[MatController::class,'obtenerUnMaterial'])->name('editarMaterial'); //obtener un material
+Route::post('/agregarUbicacion/{id}',[InventarioController::class,'registrarUbicacion'])->name('registroUbicacion'); //regsitro de ubicacion
 

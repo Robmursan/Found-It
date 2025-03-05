@@ -10,7 +10,8 @@
 
     <!-- Formulario -->
     <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        <form class="p-8">
+        <form action="{{route('registroUbicacion',['id'=>$material->id_material])}}" method="POST" class="p-8">
+            @csrf
             <div class="space-y-6">
                 <!-- Material No editable -->
                 <div class="grid grid-cols-2 gap-6 pb-6 border-b border-gray-200">
@@ -19,8 +20,9 @@
                             Código del Material
                         </label>
                         <input 
-                            type="text" 
-                            value="MAT001"
+                            type="text"
+                            name="codigo" 
+                            value="{{$material->codigo}}"
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
                         >
@@ -32,7 +34,8 @@
                         </label>
                         <input 
                             type="text" 
-                            value="Tornillos M4"
+                            name="nombre"
+                            value="{{$material->nombre}}"
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
                         >
@@ -44,7 +47,8 @@
                         </label>
                         <input 
                             type="text" 
-                            value="Ferretería"
+                            name="categoria"
+                            value="{{$material->categoria}}"
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
                         >
@@ -56,7 +60,8 @@
                         </label>
                         <input 
                             type="text" 
-                            value="1000"
+                            name="cantidad"
+                            value="{{$material->cantidad}}"
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
                         >
@@ -71,6 +76,7 @@
                         <div>
                             <label class="block text-base font-medium text-gray-700 mb-2">Columna</label>
                             <select 
+                                name="columna"
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
                                 required
                             >
@@ -87,6 +93,7 @@
                         <div>
                             <label class="block text-base font-medium text-gray-700 mb-2">Fila</label>
                             <select 
+                                name="fila"
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
                                 required
                             >

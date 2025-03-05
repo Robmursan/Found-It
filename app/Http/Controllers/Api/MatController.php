@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Materiales;
 use Illuminate\Http\Request;
 
-use function Ramsey\Uuid\v1;
 
 class MatController extends Controller
 {
@@ -68,5 +67,17 @@ class MatController extends Controller
         ];
         return response()->json($data,201); */
         return redirect()->route('embarquesagregar')->with('mensaje','Registro exitoso');
+    }
+
+    public function obtenerUnMaterial(Request $request,$id){
+
+        $material=Materiales::where('id_material',$id)->first();
+
+        if(!$material){
+            return response()->json(['message' => 'Material no encontrado'], 404);
+        }
+
+        return view('conteoagregar',['material'=>$material]);
+
     }
 }
