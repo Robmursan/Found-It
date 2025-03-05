@@ -11,8 +11,8 @@ use App\Models\Usuarios;
 use App\Models\Estante;
 use App\Models\Inventario;
 use App\Models\Materiales;
+use Illuminate\Support\Facades\Auth;
 
-use function Laravel\Prompts\error;
 
 class InventarioController extends Controller
 {
@@ -93,6 +93,41 @@ class InventarioController extends Controller
         ],201);
 
 
+        
+    }
+
+    public function registrarUbicacion(Request $request, $id){
+
+        $material=Materiales::where('id_material',$id)->first();
+        
+        // Verificar si el material existe
+        if (!$material) {
+            return response()->json(['message' => 'Material no encontrado'], 404);
+        }
+
+        $request->validate([
+            //'pasillo' => 'required',
+            'columna' => 'required',
+            'fila' => 'required',
+            'led' => 'boolean',
+
+        ]);
+
+        $usuario_id = auth()->id();
+
+        //crear un nuevo registro en estante + material
+        $estante=new Estante();
+        $estante->usuario_id = $usuario_id;
+        $estante->columna = $request->columna;
+        $estante->fila = $request->fila;
+        $estante->led = $request->led ?? false;
+        $estante->save(); //guardar estante en BD
+
+        //relacion material con estante FK material
+        $material->id_estante = $estante->id_estante; 
+        $material->save();
+
+        return view('conteos',['mensaje'=>'Registro existoso']);
         
     }
 

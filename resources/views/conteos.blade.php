@@ -82,16 +82,24 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->cantidad}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                                    <button onclick="openHistoryModal('MAT002')" class="text-foundit-blue hover:text-foundit-blue/80 transition-colors duration-150">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                    </button>
-                                    <button onclick="window.location.href='{{route('conteoagregar')}}'" class="text-foundit-blue hover:text-foundit-blue/80 transition-colors duration-150">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                        </svg>
-                                    </button>
+
+                                    <form action="">
+                                        @csrf
+                                        <button onclick="openHistoryModal('MAT002')" class="text-foundit-blue hover:text-foundit-blue/80 transition-colors duration-150">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                    <form action="{{ route('editarMaterial', $material->id_material) }} " method="POST">
+                                        @csrf
+                                        {{-- agregar ubicacion --}}
+                                        <button type="submit" class="text-foundit-blue hover:text-foundit-blue/80 transition-colors duration-150">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                            </svg>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
 
