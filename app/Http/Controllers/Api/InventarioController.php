@@ -113,12 +113,13 @@ class InventarioController extends Controller
 
         ]);
 
-        $usuario_id = auth()->id();
+        $usuario_id = Auth::user()->id;
 
         //crear un nuevo registro en estante + material
         $estante=new Estante();
-        $estante->usuario_id = $usuario_id;
+        $estante->user_id = $usuario_id;
         $estante->columna = $request->columna;
+        $estante->material_id=$material->id_material;
         $estante->fila = $request->fila;
         $estante->led = $request->led ?? false;
         $estante->save(); //guardar estante en BD
