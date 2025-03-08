@@ -15,16 +15,17 @@ use Illuminate\Support\Facades\Route;
 // APIRest
 
 //usuarios
-Route::get('usuarios',[AuthCotroller::class,'index']);
-Route::post('/createUsuario',[AuthCotroller::class,'store']);
+/* Route::get('usuarios',[AuthCotroller::class,'index']);
+Route::post('/createUsuario',[AuthCotroller::class,'store']); */
 
 //inventario
-Route::get('/inventario',[InventarioController::class,'inventario']);
-Route::post('/registroInventario',[InventarioController::class,'registrarInventario']);
+/* Route::get('/inventario',[InventarioController::class,'inventario']);
+Route::post('/registroInventario',[InventarioController::class,'registrarInventario']); */
 
-//materiales
+/* //materiales
 Route::get('/material',[MatController::class,'listaMaterial'])->name('listaMaterial');//ruta para ver material
 Route::post('/materialCreate',[MatController::class,'registrarMaterial'])->name('registroMaterial'); //regitro de material
-Route::post('/editarMaterial/{id}',[MatController::class,'obtenerUnMaterial'])->name('editarMaterial'); //obtener un material
-Route::post('/agregarUbicacion/{id}',[InventarioController::class,'registrarUbicacion'])->name('registroUbicacion'); //regsitro de ubicacion
+Route::post('/editarMaterial/{id}',[MatController::class,'obtenerUnMaterial'])->name('editarMaterial'); //obtener un material */
+//Route::post('/agregarUbicacion/{id}',[InventarioController::class,'registrarUbicacion'])->name('registroUbicacion'); //regsitro de ubicacion
+//Route::middleware('auth:sanctum')->post('/agregarUbicacion/{id}',[InventarioController::class,'registrarUbicacion'])->name('registroUbicacion');
 

@@ -23,7 +23,7 @@ class Estante extends Model
 
     //funciones para relaciones al FK
     public function usuario(){
-        return $this->belongsTo(Usuarios::class,'usuario_id', 'id_usuario');
+        return $this->belongsTo(User::class, 'usuario_id');
     }
     public function material(){
         return $this->belongsTo(Materiales::class,'material_id', 'id_material');

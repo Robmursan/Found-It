@@ -16,7 +16,7 @@ return new class extends Migration
     public function up(): void
     {   
         //USUARIO
-        Schema::create('usuario', function (Blueprint $table) {
+        /* Schema::create('usuario', function (Blueprint $table) {
             $table->bigIncrements('id_usuario');//PK
             $table->string('correo',255);
             $table->string('pass',255);
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->boolean('estado')->default(true);
             $table->timestamps();
             $table->engine = 'InnoDB';
-        });
+        }); */
 
         //MATERIAL
         Schema::create('material', function (Blueprint $table) {
@@ -33,7 +33,6 @@ return new class extends Migration
             $table->string('nombre',255);
             $table->string('categoria',255)->nullable();
             $table->bigInteger('codigo')->default(0)->unique();
-            //$table->timestamp('fecha_ingreso')->default(value: DB::raw(value: 'CURRENT_TIMESTAMP'));
             $table->integer('cantidad');
             $table->timestamps();
             $table->timestamp('fecha_salida')->nullable();//agrega salida manual
@@ -59,12 +58,12 @@ return new class extends Migration
             $table->string('columna',255);
             $table->string('fila',255);
             $table->boolean('led')->default(false);
-            $table->unsignedBigInteger('usuario_id');//FK
+            $table->unsignedBigInteger('user_id');//FK
             $table->unsignedBigInteger('material_id');//FK
             $table->unsignedBigInteger('inventario_id');//FK
 
             //definir la claves foraneas
-            $table->foreign('usuario_id')->references('id_usuario')->on('usuario')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('material_id')->references('id_material')->on('material')->onDelete('cascade');
             $table->foreign('inventario_id')->references('id_inventario')->on('inventario')->onDelete('cascade');
             $table->timestamps();
@@ -83,6 +82,6 @@ return new class extends Migration
         Schema::dropIfExists('estante');
         Schema::dropIfExists('inventario');
         Schema::dropIfExists('material');
-        Schema::dropIfExists('usuario');
+        //Schema::dropIfExists('usuario');
     }
 };

@@ -46,4 +46,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //Relación con Materiales
+    public function materiales(){
+        return $this->hasMany(Materiales::class, 'user_id');
+    }
+
+    //Relación con Estantes
+    public function estantes(){
+        return $this->hasMany(Estante::class, 'user_id');
+    }
 }
